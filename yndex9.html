@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>音樂播放器</title>
+  <style>
+    #music-player {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #f5f5f5; /* 米白色 */
+      color: #333; /* 深灰色文字 */
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* 淡淡的陰影效果 */
+      display: flex; /* 新增 */
+      flex-direction: column; /* 新增 */
+      align-items: center; /* 新增 */
+    }
+
+    #playlist-title {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    #audio-controls {
+      display: flex;
+      align-items: center;
+    }
+
+    #play-pause-btn,
+    #prev-btn,
+    #next-btn,
+    #repeat-btn {
+      font-size: 20px; /* 調整按鈕字體大小 */
+      margin-right: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="music-player">
+    <div id="playlist-title">承毅歌單</div>
+    <div id="audio-controls">
+      <div id="play-pause-btn" onclick="togglePlayPause()">▶️</div>
+      <div id="prev-btn" onclick="skip(-10)">⏪</div>
+      <div id="next-btn" onclick="skip(10)">⏩</div>
+      <div id="repeat-btn" onclick="toggleRepeat()">🔁</div>
+    </div>
+    <audio id="audio-player" controls onended="playNext()">
+      
+      <source src="Gmail/ DANCE MONKEY .mp3" type="audio/mp3">
+      <source src="Gmail/Dusk Till Dawn .mp3" type="audio/mp3">
+      <source src="Gmail/Hello.mp3" type="audio/mp3">
+      <source src="Gmail/See You Again .mp3" type="audio/mp3">
+    </audio>
+  </div>
+
+  <script>
+    const audioPlayer = document.getElementById('audio-player');
+    const playPauseBtn = document.getElementById('play-pause-btn');
+    const repeatBtn = document.getElementById('repeat-btn');
+    let isPlaying = false;
+    let isRepeatOne = false;
+    let isRepeatAll = false;
+
+    function togglePlayPause() {
+      if (isPlaying) {
+        audioPlayer.pause();
+      } else {
+        audioPlayer.play();
+      }
+      isPlaying = !isPlaying;
+    }
+
+    function skip(seconds) {
+      audioPlayer.currentTime += seconds;
+    }
+
+    function toggleRepeat() {
+      if (!isRepeatOne && !isRepeatAll) {
+        isRepeatOne = true;
+        repeatBtn.innerText = '🔂';
+      } else if (isRepeatOne && !isRepeatAll) {
+        isRepeatAll = true;
+        isRepeatOne = false;
+        repeatBtn.innerText = '🔄';
+      } else {
+        isRepeatOne = false;
+        isRepeatAll = false;
+        repeatBtn.innerText = '🔁';
+      }
+    }
+
+    function playNext() {
+      if (isRepeatOne) {
+        audioPlayer.currentTime = 0;
+        audioPlayer.play();
+      } else if (isRepeatAll) {
+        const sources = audioPlayer.getElementsByTagName('source');
+        const currentSourceIndex = Array.from(sources).findIndex(source => source.src === audioPlayer.src);
+        const nextSourceIndex = (currentSourceIndex + 1) % sources.length;
+        audioPlayer.src = sources[nextSourceIndex].src;
+        audioPlayer.play();
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+

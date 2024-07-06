@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automatic Slideshow with Fade Effect</title>
+<style>
+  .slideshow-container {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  .fade-in-out {
+    animation: fadeInOut 5s infinite; /* 每5秒自動切換 */
+  }
+
+  @keyframes fadeInOut {
+    0% {
+      opacity: 1;
+    }
+    25% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    75% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .slideshow-container img {
+    max-width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .slideshow-container img.active {
+    opacity: 1;
+  }
+</style>
+</head>
+<body>
+  <div class="slideshow-container">
+    <img src="https://pbs.twimg.com/media/GRphumKbMAQIiNU?format=jpg&name=4096x4096" class="active fade-in-out" alt="Image 1">
+    <img src="https://pbs.twimg.com/media/GRkOvQkagAASQ32?format=jpg&name=4096x4096" class="fade-in-out" alt="Image 2">
+    <img src="https://pbs.twimg.com/media/GRkOvQobMAACSBB?format=jpg&name=4096x4096" class="fade-in-out" alt="Image 3">
+    <img src="https://pbs.twimg.com/media/GO1Y9s4XUAACqNg?format=jpg&name=4096x4096" class="fade-in-out" alt="Image 4">
+    <img src="https://pbs.twimg.com/media/GOw3OdtaMAItytT?format=jpg&name=4096x4096" class="fade-in-out" alt="Image 5">
+    <img src="https://pbs.twimg.com/media/GOg5jQubwAAF2wG?format=jpg&name=4096x4096" class="fade-in-out" alt="Image 6">
+    <img src="https://pbs.twimg.com/media/GOLqbxrbMAAFkxW?format=jpg&name=4096x4096" class="fade-in-out" alt="Image 7">
+    <img src="https://pbs.twimg.com/media/GOGWMLka4AAJqCS?format=jpg&name=4096x4096" class="fade-in-out" alt="Image 8">
+    <img src="https://pbs.twimg.com/media/GN4SJ59awAA2lAl?format=jpg&name=medium" class="fade-in-out" alt="Image 9">
+    <img src="https://pbs.twimg.com/media/GN8myGVaEAAvbqf?format=jpg&name=4096x4096" class="fade-in-out" alt="Image 10">
+    <img src="https://pbs.twimg.com/media/GNoA2-5bgAAIIyV?format=jpg&name=large" class="fade-in-out" alt="Image 11">
+    <img src="https://pbs.twimg.com/media/GNTpNBya4AEE3Td?format=jpg&name=4096x4096" class="fade-in-out" alt="Image 12">
+    <img src="https://pbs.twimg.com/media/GMlxMRqaYAAzdCm?format=jpg&name=4096x4096" class="fade-in-out" alt="Image 13">
+    <img src="https://pbs.twimg.com/media/GMBO9NBbgAAaqwR?format=jpg&name=4096x4096" class="fade-in-out" alt="Image 14">
+    <img src="https://pbs.twimg.com/media/GL2P_z2acAAZTAK?format=jpg&name=4096x4096" class="fade-in-out" alt="Image 15">
+    <img src="https://pbs.twimg.com/media/GLIJ1OsbIAARNCZ?format=jpg&name=large" class="fade-in-out" alt="Image 16">
+    <img src="https://pbs.twimg.com/media/GK-GbYlbMAAp77Q?format=jpg&name=large" class="fade-in-out" alt="Image 17">
+    <img src="https://pbs.twimg.com/media/GK5JGYKaQAAW-HN?format=jpg&name=large" class="fade-in-out" alt="Image 18">
+    <img src="https://pbs.twimg.com/media/GK0Io3GbkAEJ2tI?format=jpg&name=large" class="fade-in-out" alt="Image 19">
+    <img src="https://pbs.twimg.com/media/GKvVVqBaMAAUL1s?format=jpg&name=large" class="fade-in-out" alt="Image 20">
+    <img src="https://pbs.twimg.com/media/GKAh-xPaQAEuzP1?format=jpg&name=large" class="fade-in-out" alt="Image 21">
+    <img src="https://pbs.twimg.com/media/GJ1zGK1bsAAwI_8?format=jpg&name=large" class="fade-in-out" alt="Image 22">
+    <img src="https://pbs.twimg.com/media/GJw9uoMXQAAYEU7?format=jpg&name=large" class="fade-in-out" alt="Image 23">
+    <img src="https://pbs.twimg.com/media/GJVGcBMagAEUqUh?format=jpg&name=large" class="fade-in-out" alt="Image 24">
+    <img src="https://pbs.twimg.com/media/GJhfqBZbQAAUMKS?format=jpg&name=large" class="fade-in-out" alt="Image 25">
+    <img src="https://pbs.twimg.com/media/GJBykrRbYAA3dIS?format=jpg&name=large" class="fade-in-out" alt="Image 26">
+    <img src="https://pbs.twimg.com/media/GIuDmdVaEAAEUaY?format=jpg&name=large" class="fade-in-out" alt="Image 27">
+    <img src="https://pbs.twimg.com/media/GH_ZvL1a0AA_zEA?format=jpg&name=large" class="fade-in-out" alt="Image 28">
+    <img src="https://pbs.twimg.com/media/GHuIky2aQAATisY?format=jpg&name=large" class="fade-in-out" alt="Image 29">
+    <img src="https://pbs.twimg.com/media/GHLr9_nakAAPuJx?format=jpg&name=large" class="fade-in-out" alt="Image 30">
+    <img src="https://pbs.twimg.com/media/GGeUBPMa0AArP8-?format=jpg&name=large" class="fade-in-out" alt="Image 31">
+    <img src="https://pbs.twimg.com/media/GFBDoRMbMAAywRK?format=jpg&name=large" class="fade-in-out" alt="Image 32">
+    <img src="https://pbs.twimg.com/media/GEnGn8Va8AAaYgg?format=jpg&name=large" class="fade-in-out" alt="Image 33">
+    <img src="https://pbs.twimg.com/media/GD-q3P5bYAAd0oC?format=jpg&name=large" class="fade-in-out" alt="Image 34">
+    <img src="https://pbs.twimg.com/media/GB4KyJ6acAAMdim?format=jpg&name=large" class="fade-in-out" alt="Image 35">
+    <img src="https://pbs.twimg.com/media/F83MvynawAAVAcl?format=jpg&name=large" class="fade-in-out" alt="Image 36">
+    <img src="https://pbs.twimg.com/media/F8VTcNLbsAAk50y?format=jpg&name=large" class="fade-in-out" alt="Image 37">
+    <img src="https://pbs.twimg.com/media/F8S1ieNbkAA7yDd?format=jpg&name=large" class="fade-in-out" alt="Image 38">
+  </div>
+
+  <script>
+    // JavaScript部分用於自動切換圖片
+    const images = document.querySelectorAll('.fade-in-out');
+    let currentImageIndex = 0;
+
+    function showNextImage() {
+      images[currentImageIndex].classList.remove('active');
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      images[currentImageIndex].classList.add('active');
+    }
+
+    // 每5秒自動切換一次圖片
+    setInterval(showNextImage, 5000);
+  </script>
+</body>
+</html>
+

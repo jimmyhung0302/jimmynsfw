@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>受密碼保護的網頁</title>
+    <style>
+        
+        body {
+            /* 省略其他样式内容 */
+            background-image: url(https://pbs.twimg.com/media/GA299pna0AAUyym?format=jpg&name=large);
+            background-position: center;
+            background-size: cover;
+            opacity: 0.9;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            
+            transition: opacity 1s ease-in-out, background-image 1s ease-in-out; /* 添加过渡效果 */
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* 半透明的白色背景 */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 80%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        input[type="password"] {
+            padding: 12px;
+            margin: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            width: calc(100% - 22px);
+            max-width: 300px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="password"]:focus {
+            border-color: #4CAF50; /* 焦點時變更邊框顏色 */
+        }
+
+        #submitBtn {
+            padding: 12px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 1rem;
+        }
+
+        #submitBtn:hover {
+            background-color: #45a049;
+        }
+
+        #errorText {
+            color: red;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        p {
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>請輸入密碼以訪問內容</h1>
+        <p></p>
+        <input type="password" id="password" placeholder="提示：用盡力量辱華">
+        <br>
+        <button onclick="checkPassword()" id="submitBtn">確認</button>
+        <p id="errorText"></p>
+    </div>
+
+    
+
+
+
+
+    <script>
+        var password = "8964"; // 這是二進制表示的密碼
+        var attempts = 0;
+        var lastAttemptTime = 0;
+        var errorText = document.getElementById("errorText");
+        var attempts = 0;
+        var lastAttemptTime = 0;
+        var errorText = document.getElementById("errorText");
+
+        function checkPassword() {
+            var userPassword = document.getElementById("password").value;
+            var currentTime = new Date().getTime();
+            if (userPassword === password) {
+                window.location.href = "yndex3.html";
+            } else {
+                var timeDiff = currentTime - lastAttemptTime;
+               
+                if (timeDiff < 60000 && attempts >= 5) {
+                    // 超過一分鐘且嘗試次數超過五次，設定等待三分鐘
+                    var remainingTime = Math.ceil((60000 - timeDiff) / 1000);
+                    errorText.textContent = "請等待 " + remainingTime + " 秒後再試。";
+                } else {
+                    attempts++;
+                    lastAttemptTime = currentTime;
+                    var remainingAttempts = 5 - attempts;
+                    if (remainingAttempts > 0) {
+                        errorText.textContent = "密碼錯誤，還剩 " + remainingAttempts + " 次嘗試。";
+                    } else {
+                        errorText.textContent = "請等待三分鐘後再試。";
+                        setTimeout(resetAttempts, 180000); // 等待三分鐘後重置嘗試次數
+                    }
+                }
+            }
+        }
+
+        function resetAttempts() {
+            attempts = 0;
+            lastAttemptTime = 0;
+            errorText.textContent = "";
+        }
+
+        document.getElementById("password").addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+                checkPassword();
+            }
+        });
+
+
+    
+
+  // 當使用者重新開始輸入時，移除隱藏的密碼類別
+  document.getElementById("password").addEventListener("input", function () {
+    var passwordField = document.getElementById("password");
+    if (passwordField.classList.contains("hidden-password")) {
+      passwordField.classList.remove("hidden-password");
+      document.getElementById("errorText").textContent = ""; // 清除錯誤提示
+    }
+  });
+    </script>
+    
+</body>
+
+
+</html>
+

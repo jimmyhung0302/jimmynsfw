@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> KG Quiz</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        padding: 20px;
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    .question {
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .question p {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    .options {
+        display: flex;
+        justify-content: space-around;
+    }
+    .options label {
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .options label:hover {
+        background-color: #e0e0e0;
+    }
+    .options img {
+        width: 150px;
+        height: auto;
+        border-radius: 4px;
+    }
+    button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    #result {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 18px;
+    }
+    #linkContainer {
+        display: none;
+        text-align: center;
+        margin-top: 20px;
+    }
+    #linkContainer a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+    <h1>色色連結考驗</h1>
+
+    <div class="question">
+        <p>1. 請問哪一個是假奶?</p>
+        <div class="options">
+            <label>
+                <input type="radio" name="q1" value="paris">
+                <img src="dcard/196.jpeg" alt="Paris">
+            </label>
+            <label>
+                <input type="radio" name="q1" value="london">
+                <img src="dcard/191.jpeg" alt="London">
+            </label>
+            <label>
+                <input type="radio" name="q1" value="berlin">
+                <img src="dcard/190.jpeg" alt="Berlin">
+            </label>
+            <label>
+                <input type="radio" name="q1" value="rome">
+                <img src="dcard/179.jpeg" alt="Rome">
+            </label>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>2. 請問哪一個為絕世美鮑?</p>
+        <div class="options">
+            <label>
+                <input type="radio" name="q2" value="shakespeare">
+                <img src="dcard/184.jpeg" alt="William Shakespeare">
+            </label>
+            <label>
+                <input type="radio" name="q2" value="dickens">
+                <img src="dcard/298.png" alt="Charles Dickens">
+            </label>
+            <label>
+                <input type="radio" name="q2" value="twain">
+                <img src="dcard1/677.png" alt="Mark Twain">
+            </label>
+            <label>
+                <input type="radio" name="q2" value="homer">
+                <img src="twitter messy/496.jpeg" alt="Homer">
+            </label>
+        </div>
+    </div>
+
+    <button onclick="calculateScore()">Submit</button>
+
+    <div id="result"></div>
+
+    <div id="linkContainer">
+        <p>Congratulations! You scored above 50%! 
+            Here's your <a href="yndex2.html">special link</a>.
+        </p>
+        <p>password number is 8964</p>
+            
+            
+    </div>
+
+    <script>
+        function calculateScore() {
+            var score = 0;
+
+            // Check answer for question 1
+            var q1Answer = document.querySelector('input[name="q1"]:checked');
+            if (q1Answer && q1Answer.value === "berlin") {
+                score++;
+            }
+
+            // Check answer for question 2
+            var q2Answer = document.querySelector('input[name="q2"]:checked');
+            if (q2Answer && q2Answer.value === "dickens") {
+                score++;
+            }
+
+            // Display result
+            var resultContainer = document.getElementById('result');
+            resultContainer.textContent = 'Your score is: ' + score + ' out of 2';
+
+            // Show special link if score is above 50%
+            var linkContainer = document.getElementById('linkContainer');
+            if (score > 1) { // Assuming above 50% means both questions correct
+                linkContainer.style.display = 'block';
+            } else {
+                linkContainer.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
+

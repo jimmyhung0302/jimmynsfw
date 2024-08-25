@@ -77,6 +77,107 @@
         text-decoration: none;
         font-weight: bold;
     }
+    /* 基本通知樣式 */
+    .notification {
+            background-color: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            position: relative;
+            max-width: 300px;
+            margin: 20px auto;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* 鏈接樣式 */
+        .notification a {
+            text-decoration: none; /* 去掉底線 */
+            color: #007bff; /* 藍色字體 */
+            font-weight: bold;
+            font-size: 16px; /* 調整字體大小 */
+        }
+
+        .notification a:hover {
+            color: #0056b3; /* 滑鼠懸停時變色 */
+        }
+
+        /* 進度條樣式 */
+        .progress-bar {
+            background-color: #007bff;
+            height: 4px;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-radius: 0 0 8px 8px;
+        }
+    
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            height: 100vh;
+        }
+
+        .notification {
+            width: 300px;
+            background-color: #e0f3ff; /* 淺藍色背景 */
+            color: #4285f4; /* 文字顏色 */
+            padding: 15px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            text-align: center;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 12px; /* 圓角邊框 */
+            overflow: hidden;
+            animation: fadeIn 1s forwards, fadeOut 1s 5s forwards; /* 顯示和隱藏動畫 */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #4285f4 50%, #e0f3ff 50%);
+            background-size: 200% 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            animation: progress 5s linear forwards;
+        }
+
+        @keyframes progress {
+            from {
+                background-position: -100% 0;
+            }
+            to {
+                background-position: 100% 0;
+            }
+        }
 </style>
 </head>
 <body>
@@ -167,6 +268,28 @@
                 linkContainer.style.display = 'none';
             }
         }
+    </script>
+    <div id="notification"  target="_blank"class="notification">
+        <a href="yndex3.html">發現一條更省時的路徑！</a>
+        <div class="progress-bar"></div>
+    </div>
+    
+    <script>
+        // 自動顯示通知
+        function showNotification() {
+            var notification = document.getElementById('notification');
+            notification.style.display = 'block';
+            
+            // 5秒後隱藏通知
+            setTimeout(function() {
+                notification.style.display = 'none';
+            }, 6000); // 顯示時間為5秒，動畫持續1秒
+        }
+    
+        // 模擬在頁面加載後顯示通知
+        window.onload = function() {
+            showNotification();
+        };
     </script>
 </body>
 </html>

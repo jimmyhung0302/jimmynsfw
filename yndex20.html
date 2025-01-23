@@ -267,6 +267,11 @@
             } else {
                 linkContainer.style.display = 'none';
             }
+             // 滾動到頁面底部
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth' // 平滑滾動
+    });
         }
     </script>
     <div id="notification"  target="_blank"class="notification">

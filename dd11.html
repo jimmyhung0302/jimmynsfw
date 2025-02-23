@@ -2181,6 +2181,37 @@ a {
                 }
             });
         });
+
+     
+        const imagePaths = Array.from({ length: 20 }, (_, i) => `DD11/${i + 1}.jpeg`);
+        const gallery = document.getElementById("gallery");
+        const loader = document.getElementById("loader");
+        const progressText = document.getElementById("progress-text");
+        
+        let loadedImages = 0;
+        const totalImages = imagePaths.length;
+        
+        imagePaths.forEach(src => {
+            const img = new Image();
+            img.src = src;
+            img.onload = () => {
+                loadedImages++;
+                const percent = Math.round((loadedImages / totalImages) * 100);
+                progressText.textContent = `載入中... ${percent}%`;
+                
+                if (loadedImages === totalImages) {
+                    setTimeout(() => loader.style.display = "none", 500);
+                }
+            };
+            img.onerror = () => {
+                loadedImages++;
+                if (loadedImages === totalImages) {
+                    setTimeout(() => loader.style.display = "none", 500);
+                }
+            };
+            img.classList.add("gallery-img");
+            gallery.appendChild(img);
+        });
     </script>
 
 </body>

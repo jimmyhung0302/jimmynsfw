@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>影片展示頁</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 40px 0;
+      background: linear-gradient(to right, #d3cce3, #e9e4f0);
+      font-family: "Segoe UI", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .main-content {
+      max-width: 600px;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .sidebar {
+      position: fixed;
+      right: 30px;
+      top: 100px;
+      width: 180px;
+      padding: 20px;
+      background-color: #f5f0ff;
+      border-left: 3px solid #ccc;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar h3 {
+      margin-top: 0;
+      font-size: 18px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .sidebar button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, #8e2de2, #4a00e0);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .sidebar button:hover {
+      background: linear-gradient(to right, #6d1ecf, #3a00b4);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 544px;
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .container:hover {
+      transform: scale(1.01);
+    }
+
+    .header {
+      width: 100%;
+      background: linear-gradient(to right, #8e2de2, #4a00e0);
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 26px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 306px;
+      border: none;
+      border-radius: 12px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #666;
+      margin-top: -10px;
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
+    .footer {
+      width: 100%;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 14px;
+      margin-top: 40px;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* 多選下拉選單樣式 */
+    #dropdownMenu {
+      display: none;
+      position: absolute;
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      max-height: 200px;
+      overflow-y: auto;
+      z-index: 100;
+      width: 150px;
+      border-radius: 8px;
+    }
+
+    #dropdownBtn {
+      width: 100%;
+      padding: 10px;
+      background: linear-gradient(to right, #8e2de2, #4a00e0);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      text-align: left;
+    }
+
+    #dropdownBtn:hover {
+      background: linear-gradient(to right, #6d1ecf, #3a00b4);
+    }
+
+    #clearFilterBtn {
+      margin-top: 10px;
+      width: 100%;
+      padding: 10px;
+      background: #888;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    #clearFilterBtn:hover {
+      background: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main-content">
+    <div class="header">
+      <h1>FC2精選影片列表</h1>
+      <h3>按Open AD & Play 後，記得關掉廣告分頁</h3>
+    </div>
+
+    <!-- 影片列表，data-tag以空白分隔多標籤 -->
+    <div class="container" data-tag="一線鮑">
+      <h2>臉超正的一線鮑</h2>
+      <p class="subtitle">FC2-ppv 4574684</p>
+      <iframe src="https://tktube.com/zh/embed/286056" allowfullscreen></iframe>
+    </div>
+
+    <div class="container" data-tag="一線鮑 中出">
+      <h2>一線鮑的番外特輯</h2>
+      <p class="subtitle">FC2-ppv 4574684 SP</p>
+      <iframe src="https://tktube.com/zh/embed/286057" allowfullscreen></iframe>
+    </div>
+
+    <div class="container" data-tag="正片 中出">
+      <h2>正到靠北</h2>
+      <p class="subtitle">FC2-ppv 1050737</p>
+      <iframe src="https://tktube.com/zh/embed/17684" allowfullscreen></iframe>
+    </div>
+
+    <div class="container" data-tag="一線鮑 中出">
+      <h2>色氣值點滿</h2>
+      <p class="subtitle">FC2-ppv 4617945</p>
+      <iframe src="https://tktube.com/zh/embed/298828" allowfullscreen></iframe>
+    </div>
+
+    <div class="container" data-tag="口罩 中出">
+      <h2>口罩推薦1</h2>
+      <p class="subtitle">FC2-ppv 4597468</p>
+      <iframe src="https://tktube.com/zh/embed/292566" allowfullscreen></iframe>
+    </div>
+
+    <div class="container" data-tag="口罩 中出 口爆">
+        <h2>口罩推薦2</h2>
+        <p class="subtitle">FC2-ppv 4450861</p>
+        <iframe src="https://tktube.com/zh/embed/247989" allowfullscreen></iframe>
+    </div>
+    
+    <div class="container" data-tag="正妹 ">
+        <h2>巨乳正妹1</h2>
+        <p class="subtitle">FC2-ppv 2751830</p>
+        <iframe src="https://tktube.com/zh/embed/117379" allowfullscreen></iframe>
+    </div>  
+
+    <div class="container" data-tag="正妹 顏射 ">
+        <h2>巨乳正妹2</h2>
+        <p class="subtitle">FC2-ppv 2953018</p>
+        <iframe src="https://tktube.com/zh/embed/126588" allowfullscreen></iframe>
+    </div> 
+
+
+    <div class="container" data-tag="正妹 顏射 ">
+        <h2>巨乳正妹3</h2>
+        <p class="subtitle">FC2-ppv 3237031</p>
+        <iframe src="https://tktube.com/zh/embed/173160" allowfullscreen></iframe>
+    </div> 
+
+    <div class="container" data-tag="正妹 顏射 ">
+        <h2>巨乳正妹4</h2>
+        <p class="subtitle">FC2-ppv 3059148</p>
+        <iframe src="https://tktube.com/zh/embed/133251" allowfullscreen></iframe>
+    </div> 
+
+    <footer class="footer">
+      © 2025 jimmyhung All rights reserved.
+    </footer>
+  </div>
+
+  <!-- 側邊選單 -->
+  <div class="sidebar">
+    <h3>影片分類</h3>
+    <button id="dropdownBtn">選擇分類 ▼</button>
+    <div id="dropdownMenu">
+      <label><input type="checkbox" value="一線鮑" class="filter-checkbox"> 一線鮑</label><br />
+      <label><input type="checkbox" value="口罩" class="filter-checkbox"> 口罩</label><br />
+      <label><input type="checkbox" value="顏射" class="filter-checkbox"> 顏射</label><br />
+      <label><input type="checkbox" value="中出" class="filter-checkbox"> 中出</label><br />
+      <label><input type="checkbox" value="口爆" class="filter-checkbox"> 口爆</label><br />
+      <label><input type="checkbox" value="正妹" class="filter-checkbox"> 正妹</label><br />
+    </div>
+    <button id="clearFilterBtn">清除篩選</button>
+  </div>
+
+  <script>
+    const dropdownBtn = document.getElementById("dropdownBtn");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+    const clearFilterBtn = document.getElementById("clearFilterBtn");
+    const checkboxes = document.querySelectorAll(".filter-checkbox");
+
+    dropdownBtn.addEventListener("click", () => {
+      dropdownMenu.style.display =
+        dropdownMenu.style.display === "block" ? "none" : "block";
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.style.display = "none";
+      }
+    });
+
+    function filterVideosByCheckbox() {
+      const checkedValues = Array.from(checkboxes)
+        .filter((cb) => cb.checked)
+        .map((cb) => cb.value);
+
+      const videos = document.querySelectorAll(".container");
+
+      if (checkedValues.length === 0) {
+        videos.forEach((v) => (v.style.display = "block"));
+      } else {
+        videos.forEach((v) => {
+          const tags = v.dataset.tag ? v.dataset.tag.split(" ") : [];
+          const matched = checkedValues.some((val) => tags.includes(val));
+          v.style.display = matched ? "block" : "none";
+        });
+      }
+    }
+
+    checkboxes.forEach((cb) =>
+      cb.addEventListener("change", filterVideosByCheckbox)
+    );
+
+    clearFilterBtn.addEventListener("click", () => {
+      checkboxes.forEach((cb) => (cb.checked = false));
+      filterVideosByCheckbox();
+    });
+  </script>
+</body>
+</html>
+
+
+
+
